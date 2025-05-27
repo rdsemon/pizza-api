@@ -1,0 +1,55 @@
+[
+  {
+    "id": 1,
+    "ingredints": ["tomato ssuce", "mozzarella", "basil"],
+    "name": "Margherita",
+    "price": 300,
+    "stock": true
+  },
+  {
+    "id": 2,
+    "ingredints": ["tomato ssuce", "mozzarella", "pepperoni"],
+    "name": "Pepperani",
+    "price": 400,
+    "stock": true
+  },
+  {
+    "id": 3,
+    "price": 700,
+    "ingredints": [
+      "tomato ssuce",
+      "mozzarella",
+      "bell pappers",
+      "onions",
+      "olives"
+    ],
+    "name": "Veggie",
+    "stock": true
+  },
+  {
+    "id": 4,
+    "name": "Four Cheese Pizza",
+    "ingredints": [
+      "Tomato sauce",
+      "mozzarella cheese",
+      "parmesan cheese",
+      "gorgonzola cheese",
+      "riccota cheese"
+    ],
+    "price": 1300,
+    "stock": true
+  },
+  {
+    "id": 5,
+    "name": "Pesto Chicken Pizza",
+    "ingredints": [
+      "Pesto sauce,",
+      "grilled chicken",
+      "mozzarella cheese",
+      "cherry tomatoes",
+      "basil"
+    ],
+    "price": 2300,
+    "stock": false
+  }
+]
