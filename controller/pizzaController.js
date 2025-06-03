@@ -1,11 +1,14 @@
 const qs = require("qs");
 const Pizza = require("../modal/pizzaModal");
 
+const Pizza = require("../models/pizzaModel");
+const qs = require("qs");
+
 exports.getAllPizza = async (req, res) => {
   try {
-    //fitering
-    const parseQurey = qs.parse(req._parsedUrl.query);
-    const queryObj = { ...parseQurey };
+    // Filtering
+    const parseQuery = qs.parse(req._parsedUrl.query);
+    const queryObj = { ...parseQuery };
 
     const excludedFields = ["sort", "page", "limit", "fields"];
     excludedFields.forEach((el) => delete queryObj[el]);
@@ -18,21 +21,31 @@ exports.getAllPizza = async (req, res) => {
 
     let query = Pizza.find(JSON.parse(queryString));
 
+    // Sorting
     if (req.query.sort) {
-      console.log(req.query.sort);
       const sortBy = req.query.sort.split(",").join(" ");
       query = query.sort(sortBy);
     }
 
+    // Field Limiting
     if (req.query.fields) {
       const fields = req.query.fields.split(",").join(" ");
       query = query.select(fields);
     }
 
     const pizzas = await query;
-    res
-      .status(200)
-      .json({ status: "success", result: pizzas.length, data: { pizzas } });
+
+    // ✅ Add full image URL for each pizza
+    const formattedPizzas = pizzas.map((pizza) => ({
+      ...pizza._doc,
+      image: `https://pizza-api-79f4.onrender.com/images/${pizza.image}`,
+    }));
+
+    res.status(200).json({
+      status: "success",
+      result: formattedPizzas.length,
+      data: { pizzas: formattedPizzas },
+    });
   } catch (err) {
     res.status(400).json({ status: "fail", message: "invalid action" });
     console.log(err);
