@@ -5,6 +5,7 @@ const pizzaRoute = require("./router/pizzaRoute");
 
 app.use(morgan("dev"));
 app.use(express.json());
+app.use("/images", express.static("dev-data/images"));
 
 app.use(`/api/v1/pizzas`, pizzaRoute);
 
