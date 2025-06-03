@@ -21,6 +21,9 @@ const pizzaSchema = new mongoose.Schema({
     type: Boolean,
     require: true,
   },
+  image: {
+    type: String,
+  },
 });
 
 const Pizza = mongoose.model("Pizza", pizzaSchema);

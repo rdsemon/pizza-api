@@ -37,7 +37,8 @@
       "riccota cheese"
     ],
     "price": 1300,
-    "stock": true
+    "stock": true,
+    "image": "buffalo-chicken-pizza.jpg"
   },
   {
     "id": 5,
@@ -50,6 +51,7 @@
       "basil"
     ],
     "price": 2300,
-    "stock": false
+    "stock": false,
+    "image": "bbq-chicken-pizza.jpg"
   }
 ]
