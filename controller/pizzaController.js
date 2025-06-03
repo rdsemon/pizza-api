@@ -1,9 +1,6 @@
 const qs = require("qs");
 const Pizza = require("../modal/pizzaModal");
 
-const Pizza = require("../models/pizzaModel");
-const qs = require("qs");
-
 exports.getAllPizza = async (req, res) => {
   try {
     // Filtering
