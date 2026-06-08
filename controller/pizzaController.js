@@ -59,8 +59,10 @@ exports.createPizza = async (req, res) => {
 };
 
 exports.getPizza = async (req, res) => {
+  console.log(req.params.id);
   try {
     const pizza = await Pizza.findById(req.params.id);
+    console.log(pizza);
     res.status(200).json({ status: "success", data: { pizza } });
   } catch (err) {
     res.status(404).json({ status: "fail", message: "invalid data" });
